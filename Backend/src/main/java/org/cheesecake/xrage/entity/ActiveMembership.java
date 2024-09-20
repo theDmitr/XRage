@@ -9,6 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "active_memberships")
 public class ActiveMembership {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

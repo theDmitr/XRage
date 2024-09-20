@@ -3,21 +3,21 @@ package org.cheesecake.xrage.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.cheesecake.xrage.enums.UserRole;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String username;
 
-    @Column
+    @Column(nullable = false)
     private String password;
 
     @Column
@@ -39,5 +39,5 @@ public class User {
     private String birthday;
 
     @Column
-    private UserRole role;
+    private boolean isAdmin;
 }
