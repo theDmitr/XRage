@@ -7,7 +7,7 @@ import java.util.function.Function;
 public enum Rights {
     ADMIN(User::isAdmin);
 
-    private Function<User, Boolean> handler;
+    private final Function<User, Boolean> handler;
 
     Rights(Function<User, Boolean> handler) {
         this.handler = handler;
