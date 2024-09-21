@@ -9,7 +9,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "memberships")
 public class Membership {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,7 +17,7 @@ public class Membership {
     private String name;
 
     @Column
-    private int cost;
+    private float cost;
 
     @Column
     private int duration;

@@ -1,4 +1,4 @@
-package org.cheesecake.xrage.dto;
+package org.cheesecake.xrage.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserCreationDto {
-
     private String username;
     private String password;
 }

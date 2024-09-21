@@ -1,8 +1,12 @@
 package org.cheesecake.xrage;
 
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.cheesecake.xrage.entity.User;
+import org.cheesecake.xrage.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @RequiredArgsConstructor
 @SpringBootApplication
@@ -11,7 +15,7 @@ public class XRage {
     public static void main(String[] args) {
         SpringApplication.run(XRage.class, args);
     }
-//
+
 //    private final PasswordEncoder passwordEncoder;
 //    private final UserRepository userRepository;
 //    @PostConstruct

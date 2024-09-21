@@ -1,7 +1,7 @@
 package org.cheesecake.xrage.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.cheesecake.xrage.dto.UserCreationDto;
+import org.cheesecake.xrage.dto.user.UserCreationDto;
 import org.cheesecake.xrage.entity.User;
 import org.cheesecake.xrage.repository.UserRepository;
 import org.cheesecake.xrage.service.face.UserService;
