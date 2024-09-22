@@ -16,9 +16,18 @@ public class Membership {
     @Column(nullable = false)
     private String name;
 
-    private int cost;
+    @Column
+    private float cost;
+
+    @Column
     private int duration;
+
+    @Column
     private String description;
+
+    @Column
     private boolean isWithTrainer;
+
+    @Column
     private boolean isDelete;
 }
