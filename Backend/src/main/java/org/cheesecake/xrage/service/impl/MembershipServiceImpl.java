@@ -40,7 +40,7 @@ public class MembershipServiceImpl implements MembershipService {
 
     @Override
     public MembershipDto create(MembershipCreationDto membershipDto) {
-        validate(membershipDto);
+        validateMembership(membershipDto);
         Membership membership = modelMapper.map(membershipDto, Membership.class);
         membership = membershipRepository.save(membership);
         return modelMapper.map(membership, MembershipDto.class);
@@ -48,7 +48,7 @@ public class MembershipServiceImpl implements MembershipService {
 
     @Override
     public MembershipDto update(Long id, MembershipCreationDto membershipDto) {
-        validate(membershipDto);
+        validateMembership(membershipDto);
         Membership membership = modelMapper.map(membershipDto, Membership.class);
         membership.setId(id);
         membership = membershipRepository.save(membership);
@@ -63,7 +63,7 @@ public class MembershipServiceImpl implements MembershipService {
         membershipRepository.save(membership);
     }
 
-    private void validate(MembershipCreationDto membershipDto) {
+    private void validateMembership(MembershipCreationDto membershipDto) {
         if (StringUtils.isEmpty(membershipDto.getName())) {
             throw new ValidationException("Membership name cannot be empty!");
         }

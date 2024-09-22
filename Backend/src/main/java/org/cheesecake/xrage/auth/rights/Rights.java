@@ -2,18 +2,18 @@ package org.cheesecake.xrage.auth.rights;
 
 import org.cheesecake.xrage.entity.User;
 
-import java.util.function.Function;
+import java.util.function.Predicate;
 
 public enum Rights {
     ADMIN(User::isAdmin);
 
-    private final Function<User, Boolean> handler;
+    private final Predicate<User> handler;
 
-    Rights(Function<User, Boolean> handler) {
+    Rights(Predicate<User> handler) {
         this.handler = handler;
     }
 
     public boolean check(User user) {
-        return handler.apply(user);
+        return handler.test(user);
     }
 }
