@@ -23,9 +23,6 @@
             "assets": [
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -70,30 +67,6 @@
           "defaultConfiguration": "development",
           "options": {
             "port": 80
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "XRage:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
           }
         }
       }
