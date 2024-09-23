@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule],
   templateUrl: "./app.component.html",
-  styles: [],
+  imports: [SharedModule]
 })
 export class AppComponent {
-  name=""
 }

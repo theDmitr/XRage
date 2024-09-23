@@ -1,0 +1,35 @@
+header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background-color: rgb(184, 205, 176);
+    padding: 0.6em;
+    justify-content: center;
+    nav {
+        width: 45%;
+        height: 3.5em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        img {
+            width: 10em;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            cursor: pointer;
+            color: black;
+            font-family: "Overpass", sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            transition: 0.5s ease;
+            text-decoration: none;
+            text-wrap: nowrap;
+        }
+        a:hover {
+            color: #1eb828;
+        }
+    }
+}

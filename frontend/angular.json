@@ -5,7 +5,11 @@
   "projects": {
     "XRage": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": { 
+        "@schematics/angular:component": { 
+          "style": "scss" 
+        } 
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -15,6 +19,7 @@
           "options": {
             "outputPath": "dist/xrage",
             "index": "src/index.html",
+            "styles": ["src/styles.scss"],
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
