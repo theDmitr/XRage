@@ -2,7 +2,7 @@ header {
     position: fixed;
     display: flex;
     width: 100%;
-    background-color: rgb(184, 205, 176);
+    background-color: #2b2b31;
     padding: 0.6em;
     justify-content: center;
     nav {
@@ -13,23 +13,61 @@ header {
         justify-content: space-between;
         align-items: center;
         img {
-            width: 10em;
+            width: 7em;
             height: auto;
             margin: 0;
             padding: 0;
         }
         a {
             cursor: pointer;
-            color: black;
+            color: #ffffff;
             font-family: "Overpass", sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
+            font-weight: 600;
+            font-size: 1.2rem;
             transition: 0.5s ease;
             text-decoration: none;
             text-wrap: nowrap;
+            ion-icon {
+                color: #ffffff;
+                margin-bottom: -5px;
+                margin-left: -1px;
+                scale: 85%;
+                rotate: -90deg;
+                transition: .5s ease;
+            }
         }
         a:hover {
             color: #1eb828;
+            ion-icon {
+                color: #1eb828;
+                rotate: 0deg;
+            }
+        }
+        .drop-down-menu {
+            float: left;
+            overflow: hidden;
+        }
+        .drop-down-menu:hover {
+            .drop-down-content {
+                display: flex;
+            }
+            .nav-header {
+                color: #1eb828;
+                ion-icon {
+                    color: #1eb828;
+                    rotate: 0deg;
+                }
+            }
+        }
+        .drop-down-content {
+            display: none;
+            background-color: #202024;
+            padding: 1em;
+            text-wrap: wrap;
+            flex-direction: column;
+            position: absolute;
+            border-radius: .5em;
+            gap: 15px;
         }
     }
 }
