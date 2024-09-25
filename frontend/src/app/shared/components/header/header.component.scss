@@ -7,7 +7,7 @@ header {
     justify-content: center;
     nav {
         width: 45%;
-        height: 3.5em;
+        max-height: 3.5em;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -17,6 +17,7 @@ header {
             height: auto;
             margin: 0;
             padding: 0;
+            cursor: pointer;
         }
         a {
             cursor: pointer;
