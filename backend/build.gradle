@@ -13,7 +13,7 @@ repositories {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.cheesecake.mango.XRage'
+        attributes 'Main-Class': 'org.cheesecake.xrage.XRage'
     }
 }
 
