@@ -7,9 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "active_memberships")
-public class ActiveMembership {
-
+@Table(name = "users_memberships")
+public class UserMembership {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +21,5 @@ public class ActiveMembership {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column
     private boolean isDelete;
 }

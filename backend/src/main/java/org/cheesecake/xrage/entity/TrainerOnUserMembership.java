@@ -7,9 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "trainers_on_memberships")
-public class TrainerOnMembership {
-
+@Table(name = "trainers_on_user_memberships")
+public class TrainerOnUserMembership {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,6 +18,6 @@ public class TrainerOnMembership {
     private User trainer;
 
     @ManyToOne
-    @JoinColumn(name = "active_membership_id")
-    private ActiveMembership activeMembership;
+    @JoinColumn(name = "user_membership_id")
+    private UserMembership userMembership;
 }

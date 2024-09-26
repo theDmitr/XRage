@@ -9,7 +9,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,24 +19,11 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column
     private String email;
-
-    @Column
     private String phone;
-
-    @Column
     private String firstname;
-
-    @Column
     private String lastname;
-
-    @Column
     private String creationDate;
-
-    @Column
     private String birthday;
-
-    @Column
     private boolean isAdmin;
 }
