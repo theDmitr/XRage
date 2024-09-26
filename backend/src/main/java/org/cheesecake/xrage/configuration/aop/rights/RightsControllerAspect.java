@@ -1,4 +1,4 @@
-package org.cheesecake.xrage.auth.rights;
+package org.cheesecake.xrage.configuration.aop.rights;
 
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
@@ -22,13 +22,12 @@ public class RightsControllerAspect {
 
     private final UserRepository userRepository;
 
-    @Before("@annotation(org.cheesecake.xrage.auth.rights.RequiresRights)")
-    public void adminRightsHandler(JoinPoint p) {
-        RequiresRights requiresRights = ((MethodSignature) p.getSignature()).getMethod().getAnnotation(RequiresRights.class);
-        Rights[] rights = requiresRights.value();
+    @Before("@annotation(org.cheesecake.xrage.configuration.aop.rights.RequiresRight)")
+    public void requiresRightsHandler(JoinPoint p) {
+        RequiresRight requiresRight = ((MethodSignature) p.getSignature()).getMethod().getAnnotation(RequiresRight.class);
+        Rights[] rights = requiresRight.value();
         User user = currentUser();
-        boolean hasRights = Arrays.stream(rights)
-                .anyMatch(r -> r.check(user));
+        boolean hasRights = Arrays.stream(rights).anyMatch(r -> r.check(user));
         if (!hasRights) {
             throw new RightsException();
         }

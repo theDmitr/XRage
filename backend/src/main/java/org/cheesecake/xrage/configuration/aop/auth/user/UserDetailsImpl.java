@@ -1,4 +1,4 @@
-package org.cheesecake.xrage.auth.user;
+package org.cheesecake.xrage.configuration.aop.auth.user;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

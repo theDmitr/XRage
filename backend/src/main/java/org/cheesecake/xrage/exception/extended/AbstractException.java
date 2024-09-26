@@ -12,4 +12,8 @@ public class AbstractException extends RuntimeException {
         super(message);
         this.status = status;
     }
+
+    public AbstractException(HttpStatus status) {
+        this(null, status);
+    }
 }

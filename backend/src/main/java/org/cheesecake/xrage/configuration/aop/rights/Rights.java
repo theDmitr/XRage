@@ -1,4 +1,4 @@
-package org.cheesecake.xrage.auth.rights;
+package org.cheesecake.xrage.configuration.aop.rights;
 
 import org.cheesecake.xrage.entity.User;
 
