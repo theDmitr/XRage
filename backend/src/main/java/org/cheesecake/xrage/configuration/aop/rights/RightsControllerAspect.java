@@ -22,7 +22,7 @@ public class RightsControllerAspect {
 
     private final UserRepository userRepository;
 
-    @Before("@annotation(org.cheesecake.xrage.configuration.aop.rights.RequiresRight)")
+    @Before("execution(* org.cheesecake.xrage.controller..*.*(..)) && @annotation(org.cheesecake.xrage.configuration.aop.rights.RequiresRight)")
     public void requiresRightsHandler(JoinPoint p) {
         RequiresRight requiresRight = ((MethodSignature) p.getSignature()).getMethod().getAnnotation(RequiresRight.class);
         Rights[] rights = requiresRight.value();
