@@ -106,7 +106,8 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "port": 80
+            "port": 80,
+            "proxyConfig": "src/proxy.conf.json"
           }
         },
         "ionic-cordova-serve": {

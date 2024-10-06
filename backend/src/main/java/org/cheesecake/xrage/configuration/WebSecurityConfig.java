@@ -25,7 +25,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(r -> r.requestMatchers("/**").permitAll())
+                .authorizeHttpRequests(r -> r.requestMatchers("/**").permitAll().anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(AbstractHttpConfigurer::disable)
                 .build();
