@@ -2,8 +2,7 @@
   "name": "xrage",
   "version": "0.0.0",
   "scripts": {
-    "start": "ng serve --open",
-    "start-proxy": "ng serve --open --proxy-config src/proxy.conf.json"
+    "start": "ng serve --open"
   },
   "private": true,
   "dependencies": {
