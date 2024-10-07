@@ -1,8 +1,7 @@
 header {
-    position: fixed;
     display: flex;
     width: 100%;
-    background-color: #2b2b31;
+    background-color: var(--gray1);
     padding: 0.6em;
     justify-content: center;
     nav {
@@ -21,7 +20,7 @@ header {
         }
         a {
             cursor: pointer;
-            color: #ffffff;
+            color: var(--white1);
             font-family: "Overpass", sans-serif;
             font-weight: 600;
             font-size: 1.2rem;
@@ -29,7 +28,7 @@ header {
             text-decoration: none;
             text-wrap: nowrap;
             ion-icon {
-                color: #ffffff;
+                color: var(--white1);
                 margin-bottom: -5px;
                 margin-left: -1px;
                 scale: 85%;
@@ -38,9 +37,9 @@ header {
             }
         }
         a:hover {
-            color: #1eb828;
+            color: var(--green1);
             ion-icon {
-                color: #1eb828;
+                color: var(--green1);
                 rotate: 0deg;
             }
         }
@@ -53,16 +52,16 @@ header {
                 display: flex;
             }
             .nav-header {
-                color: #1eb828;
+                color: var(--green1);
                 ion-icon {
-                    color: #1eb828;
+                    color: var(--green1);
                     rotate: 0deg;
                 }
             }
         }
         .drop-down-content {
             display: none;
-            background-color: #202024;
+            background-color: var(--gray1);
             padding: 1em;
             text-wrap: wrap;
             flex-direction: column;

@@ -1,7 +1,20 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Membership } from "../../../shared/models/membership.model";
+import { MembershipService } from "../../services/membership/membership.service";
 
 @Component({
     selector: "services-component",
-    template: "<h1>Services page</h1>"
+    templateUrl: "./services.component.html",
+    styleUrl: "./services.component.scss"
 })
-export class ServicesComponent { }
+export class ServicesComponent implements OnInit {
+    memberships: Membership[] = [];
+
+    constructor(private membershipService: MembershipService) {}
+
+    ngOnInit(): void {
+        this.membershipService.getAll().subscribe(memberships => {
+            this.memberships = memberships;
+        });
+    }
+}

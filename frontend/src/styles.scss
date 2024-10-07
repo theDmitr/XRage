@@ -1,10 +1,35 @@
-//@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: var(--green1) var(--gray1);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--gray1);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--green1);
+    border-radius: 10px;
+    border: 3px solid var(--white1);
+  }
 
 * {
     margin: 0;
     padding: 0;
+    font-family: "Overpass", sans-serif;
 }
 
-body {
-    background-color: #ffffff;
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
 }

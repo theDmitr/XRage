@@ -8,3 +8,10 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+:root {
+    --gray1: #212121;
+    --gray2: #2c2c2c;
+    --green1: #1eb828;
+    --white1: #ffffff;
+}

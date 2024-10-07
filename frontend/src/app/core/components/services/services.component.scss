@@ -1,0 +1,35 @@
+.services {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 2em;
+    column-gap: 2em;
+    flex: 200px;
+}
+
+.service {
+    width: 32em;
+    height: 25em;
+    background-color: var(--gray1);
+    border-radius: .7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+
+    h1 {
+        color: var(--green1);
+        font-weight: 600;
+        font-size: 2rem;
+        text-wrap: wrap;
+    }
+
+    h3 {
+        color: var(--white1);
+        font-weight: 600;
+        font-size: 1rem;
+        text-wrap: wrap;
+    }
+}

@@ -1,6 +1,7 @@
 package org.cheesecake.xrage.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.cheesecake.xrage.configuration.aop.auth.ExcludeAuth;
 import org.cheesecake.xrage.configuration.aop.rights.RequiresRight;
 import org.cheesecake.xrage.configuration.aop.rights.Rights;
 import org.cheesecake.xrage.dto.membership.MembershipCreationDto;
@@ -17,11 +18,13 @@ public class MembershipRestController {
 
     private final MembershipService membershipService;
 
+    @ExcludeAuth
     @GetMapping
     public List<MembershipDto> getAll() {
         return membershipService.getAll();
     }
 
+    @RequiresRight(Rights.ADMIN)
     @GetMapping("/withDeleted")
     public List<MembershipDto> getAllWithDeleted() {
         return membershipService.getAllWithDeleted();

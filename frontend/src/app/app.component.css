@@ -1,4 +1,19 @@
 main {
-    margin-top: 4em;
+    margin-top: 2em;
     padding: 1.5em;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+
+.content {
+    overflow-y: auto;
+    background-color: var(--gray2);
+    height: 100vh;
 }
