@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center">
+    <div class="user-content">
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="card" *ngFor="let membership of memberships">
+                <img src="assets/fitness.jpg" class="card-img-top" alt="Абонемент">
+                <div class="card-body">
+                    <h5 class="card-title">{{membership.name}}</h5>
+                    <p class="card-text">{{membership.description}}</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <span class="d-flex gap-1"><ion-icon name="time-outline"></ion-icon><small class="text-muted">{{membership.duration}} дней</small></span>
+                    <small class="text-muted">{{membership.cost}}₽</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

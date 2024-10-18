@@ -22,4 +22,9 @@ public class UserRestController {
     public UserDto register(@RequestBody UserCreationDto userDto) {
         return userService.create(userDto);
     }
+
+    @PostMapping("/auth")
+    public Boolean auth() {
+        return true;
+    }
 }
