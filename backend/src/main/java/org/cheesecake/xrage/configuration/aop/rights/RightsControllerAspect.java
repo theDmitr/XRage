@@ -35,8 +35,8 @@ public class RightsControllerAspect {
 
     private User currentUser() {
         String username = ((UserDetails) (SecurityContextHolder.getContext()
-                        .getAuthentication()
-                        .getPrincipal()))
+                .getAuthentication()
+                .getPrincipal()))
                 .getUsername();
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found!"));
