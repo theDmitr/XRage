@@ -1,9 +1,9 @@
 package org.cheesecake.xrage.service.face;
 
-import org.cheesecake.xrage.dto.user.UserCreationDto;
-import org.cheesecake.xrage.dto.user.UserDto;
+import org.cheesecake.xrage.dto.UserCreationDto;
+import org.cheesecake.xrage.entity.User;
 
 public interface UserService {
 
-    UserDto create(UserCreationDto userDto);
+    User register(UserCreationDto user);
 }

@@ -3,27 +3,33 @@ package org.cheesecake.xrage.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String username;
 
-    @Column(nullable = false)
+    @Column
     private String password;
 
+    @Column
     private String email;
-    private String phone;
-    private String firstname;
-    private String lastname;
-    private String creationDate;
-    private String birthday;
+
+    @Column
+    @CreatedDate
+    private LocalDateTime createdAt;
+
+    @Column
     private boolean isAdmin;
 }

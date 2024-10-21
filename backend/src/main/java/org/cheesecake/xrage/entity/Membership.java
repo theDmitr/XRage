@@ -4,21 +4,30 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @Entity
 @Table(name = "memberships")
 public class Membership {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
-    private float cost;
-    private int duration;
+    @Column
+    private Float price;
+
+    @Column
+    private Integer duration;
+
+    @Column
     private String description;
-    private boolean isWithTrainer;
-    private boolean isDelete;
+
+    @Column
+    private LocalDateTime createdAt;
 }

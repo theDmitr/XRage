@@ -12,7 +12,7 @@ export class AuthService {
     constructor(private httpClient: HttpClient) { }
 
     public async isAuthenticated(): Promise<boolean> {
-        const user = new User('admin', 'cheesecake');
+        const user = new User('cheesecake', 'cheesecake');
 
         let headers = new HttpHeaders();
         headers = headers.set('Authorization', 'Basic ' + btoa(user.username + ':' + user.password));
