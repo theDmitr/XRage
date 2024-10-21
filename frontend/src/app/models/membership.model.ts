@@ -3,7 +3,9 @@ export class Membership {
         public id: number, 
         public name: string, 
         public price: number, 
-        public duration: number, 
         public description: string,
+        public type: string,
+        public duration: number,
+        public availableVisits: number,
     ) {}
 }

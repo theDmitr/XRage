@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-    <div class="w-75">
+    <div class="user-content">
         <div class="d-flex flex-wrap justify-content-center">
             <div class="card" *ngFor="let membership of memberships">
                 <img src="assets/fitness.jpg" class="card-img-top" alt="Абонемент">
@@ -8,7 +8,8 @@
                     <p class="card-text">{{membership.description}}</p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <span class="d-flex gap-1"><ion-icon name="time-outline"></ion-icon><small class="text-muted">{{membership.duration}} дней</small></span>
+                    <span *ngIf="membership.type === 'PERIOD'" class="d-flex gap-1"><ion-icon name="time-outline"></ion-icon><small class="text-muted">{{membership.duration}} дней</small></span>
+                    <span *ngIf="membership.type === 'VISITS'" class="d-flex gap-1"><ion-icon name="today-outline"></ion-icon><small class="text-muted">{{membership.availableVisits}} посещений</small></span>
                     <small class="text-muted">{{membership.price | number:'':'es'}}₽</small>
                 </div>
             </div>
