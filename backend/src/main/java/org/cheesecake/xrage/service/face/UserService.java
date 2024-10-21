@@ -5,5 +5,5 @@ import org.cheesecake.xrage.entity.User;
 
 public interface UserService {
 
-    User register(UserCreationDto user);
+    User register(UserCreationDto userDto);
 }

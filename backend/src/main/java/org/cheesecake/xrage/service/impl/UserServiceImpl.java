@@ -9,6 +9,8 @@ import org.cheesecake.xrage.service.face.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 import static org.cheesecake.xrage.utils.StringUtils.isEmpty;
 
 @RequiredArgsConstructor
@@ -24,6 +26,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setUsername(userDto.getUsername());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setCreatedAt(LocalDateTime.now());
         return userRepository.save(user);
     }
 
