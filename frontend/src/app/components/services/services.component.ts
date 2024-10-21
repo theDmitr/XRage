@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Membership } from "../../models/membership.model";
 import { MembershipService } from "../../services/membership.service";
-import { CommonModule, NgFor } from "@angular/common";
+import { CommonModule, NgFor, registerLocaleData } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
+import es from '@angular/common/locales/es';
 
 @Component({
     selector: "services-component",
@@ -17,6 +18,7 @@ export class ServicesComponent implements OnInit {
     constructor(private membershipService: MembershipService) {}
 
     ngOnInit(): void {
+        registerLocaleData(es);
         this.membershipService.getAll().then(m => this.memberships = m);
     }
 }
