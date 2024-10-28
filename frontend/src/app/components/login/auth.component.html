@@ -1,0 +1,6 @@
+<form method="dialog" class="shadow-lg p-3 mb-5 bg-white rounded">
+    <h3>Авторизация</h3>
+    <input type="text" placeholder="Логин" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
+    <input type="password" placeholder="Пароль" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+    <button (click)="auth()">Войти</button>
+</form>

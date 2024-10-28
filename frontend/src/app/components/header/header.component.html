@@ -9,7 +9,7 @@
 		<li><a routerLink="about" class="nav-link">О нас</a></li>
 	</ul>
 	<div class="col-md-3 text-end" *ngIf="!isAuthenticated">
-		<button type="button" class="btn btn-outline-primary me-2">Войти</button>
+		<button routerLink="auth" type="button" class="btn btn-outline-primary me-2">Войти</button>
 		<button type="button" class="btn btn-primary">Зарегистрироваться</button>
 	</div>
 	<div class="col-md-3 dropdown text-end" *ngIf="isAuthenticated">

@@ -1,31 +1,26 @@
 import { Injectable } from "@angular/core";
-import { User } from "../models/user.model";
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from "@angular/common/http";
-import { firstValueFrom } from "rxjs";
+import { JwtResponseDto } from "../models/jwtResponseDto.model";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    private apiUrl = '/api/user'
+    private static apiUrl = 'api/auth'
 
     constructor(private httpClient: HttpClient) { }
 
-    public async isAuthenticated(): Promise<boolean> {
-        const user = new User('cheesecake', 'cheesecake');
+    auth(username: string, password: string) {
+        this.httpClient
+            .post<JwtResponseDto>(AuthService.apiUrl, {username: username, password: password})
+            .subscribe(r => this.setSession(r));
+    }
 
-        let headers = new HttpHeaders();
-        headers = headers.set('Authorization', 'Basic ' + btoa(user.username + ':' + user.password));
+    private setSession(authResult: JwtResponseDto) {
+        console.log(authResult);
+        //const expiresAt = moment().add(authResult.expiresIn,'second');
 
-        try {
-            const response = await firstValueFrom(
-                this.httpClient.post<any[]>(
-                    this.apiUrl + '/auth', null, { headers: headers, observe: 'response' }
-                )
-            );
-            return response.ok;
-        } catch (error) {
-            return false;
-        }
+        //localStorage.setItem('id_token', authResult.idToken);
+        //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
     }
 }

@@ -16,6 +16,5 @@ export class HeaderComponent {
 
     constructor(private authService: AuthService) {
         this.isAuthenticated = false;
-        this.authService.isAuthenticated().then(auth => this.isAuthenticated = auth);
     }
 }
