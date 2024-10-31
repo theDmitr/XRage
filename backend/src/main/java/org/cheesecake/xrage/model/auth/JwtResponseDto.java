@@ -1,4 +1,4 @@
-package org.cheesecake.xrage.dto.auth;
+package org.cheesecake.xrage.model.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,5 +8,4 @@ import lombok.Getter;
 public class JwtResponseDto {
 
     private String accessToken;
-    private String refreshToken;
 }

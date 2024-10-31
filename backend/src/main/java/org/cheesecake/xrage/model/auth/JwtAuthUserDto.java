@@ -1,4 +1,4 @@
-package org.cheesecake.xrage.dto.auth;
+package org.cheesecake.xrage.model.auth;
 
 import lombok.Getter;
 import lombok.Setter;

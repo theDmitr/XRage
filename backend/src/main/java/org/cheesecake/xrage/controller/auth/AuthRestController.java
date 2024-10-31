@@ -2,9 +2,8 @@ package org.cheesecake.xrage.controller.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.cheesecake.xrage.configuration.aop.auth.ExcludeAuth;
-import org.cheesecake.xrage.dto.auth.JwtAuthUserDto;
-import org.cheesecake.xrage.dto.auth.JwtRefreshDto;
-import org.cheesecake.xrage.dto.auth.JwtResponseDto;
+import org.cheesecake.xrage.model.auth.JwtAuthUserDto;
+import org.cheesecake.xrage.model.auth.JwtResponseDto;
 import org.cheesecake.xrage.service.face.auth.AuthService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,11 +21,5 @@ public class AuthRestController {
     @PostMapping
     public JwtResponseDto auth(@RequestBody JwtAuthUserDto jwtAuthUserDto) {
         return authService.auth(jwtAuthUserDto);
-    }
-
-    @ExcludeAuth
-    @PostMapping("/token")
-    public JwtResponseDto token(@RequestBody JwtRefreshDto jwtRefreshDto) {
-        return authService.getAccessToken(jwtRefreshDto);
     }
 }

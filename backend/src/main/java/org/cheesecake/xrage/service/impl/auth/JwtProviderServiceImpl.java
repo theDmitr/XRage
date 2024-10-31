@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
-import java.security.Key;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.Duration;
 import java.util.Date;
 
 import static io.jsonwebtoken.security.Keys.hmacShaKeyFor;
@@ -23,53 +20,28 @@ import static io.jsonwebtoken.security.Keys.hmacShaKeyFor;
 @Component
 public class JwtProviderServiceImpl implements JwtProviderService {
 
-    private final SecretKey jwtAccessSecretKey;
-    private final SecretKey jwtRefreshSecretKey;
+    private final SecretKey jwtSecretKey;
 
-    public JwtProviderServiceImpl(@Value("${jwt.secret.access}") String jwtAccessSecretKey,
-                                  @Value("${jwt.secret.refresh}") String jwtRefreshSecretKey) {
-        this.jwtAccessSecretKey = hmacShaKeyFor(Decoders.BASE64.decode(jwtAccessSecretKey));
-        this.jwtRefreshSecretKey = hmacShaKeyFor(Decoders.BASE64.decode(jwtRefreshSecretKey));
+    public JwtProviderServiceImpl(@Value("${jwt.secret}") String jwtSecretKey) {
+        this.jwtSecretKey = hmacShaKeyFor(Decoders.BASE64.decode(jwtSecretKey));
     }
 
     @Override
-    public String generateAccessToken(User user) {
-        LocalDateTime now = LocalDateTime.now();
-        Instant accessExpirationInstant = now.plusMinutes(5).atZone(ZoneId.systemDefault()).toInstant();
-        Date accessExpirationDate = Date.from(accessExpirationInstant);
+    public String generateToken(User user) {
+        long currentTime = System.currentTimeMillis();
         return Jwts.builder()
                 .setSubject(user.getUsername())
-                .setExpiration(accessExpirationDate)
-                .signWith(jwtAccessSecretKey)
+                .setIssuedAt(new Date(currentTime))
+                .setExpiration(new Date(currentTime + Duration.ofMinutes(1).toMillis()))
+                .signWith(jwtSecretKey)
                 .compact();
     }
 
     @Override
-    public String generateRefreshToken(User user) {
-        LocalDateTime now = LocalDateTime.now();
-        Instant refreshExpirationInstant = now.plusDays(30).atZone(ZoneId.systemDefault()).toInstant();
-        Date refreshExpirationDate = Date.from(refreshExpirationInstant);
-        return Jwts.builder()
-                .setSubject(user.getUsername())
-                .setExpiration(refreshExpirationDate)
-                .signWith(jwtRefreshSecretKey)
-                .compact();
-    }
-
-    @Override
-    public boolean validateAccessToken(String token) {
-        return validateToken(token, jwtAccessSecretKey);
-    }
-
-    @Override
-    public boolean validateRefreshToken(String token) {
-        return validateToken(token, jwtRefreshSecretKey);
-    }
-
-    private boolean validateToken(String token, Key secret) {
+    public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
-                    .setSigningKey(secret)
+                    .setSigningKey(jwtSecretKey)
                     .build()
                     .parseClaimsJws(token);
             return true;
@@ -82,18 +54,9 @@ public class JwtProviderServiceImpl implements JwtProviderService {
     }
 
     @Override
-    public Claims getAccessClaims(String token) {
-        return getClaims(token, jwtAccessSecretKey);
-    }
-
-    @Override
-    public Claims getRefreshClaims(String token) {
-        return getClaims(token, jwtRefreshSecretKey);
-    }
-
-    private Claims getClaims(String token, Key secret) {
+    public Claims getClaims(String token) {
         return Jwts.parserBuilder()
-                .setSigningKey(secret)
+                .setSigningKey(jwtSecretKey)
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
