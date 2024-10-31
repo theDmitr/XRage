@@ -1,7 +1,6 @@
 package org.cheesecake.xrage.service.impl.auth;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +14,7 @@ import java.time.Duration;
 import java.util.Date;
 
 import static io.jsonwebtoken.security.Keys.hmacShaKeyFor;
+import static org.cheesecake.xrage.utils.StringUtils.isEmpty;
 
 @Slf4j
 @Component
@@ -39,18 +39,19 @@ public class JwtProviderServiceImpl implements JwtProviderService {
 
     @Override
     public boolean validateToken(String token) {
+        if (isEmpty(token)) {
+            return false;
+        }
         try {
             Jwts.parserBuilder()
                     .setSigningKey(jwtSecretKey)
                     .build()
                     .parseClaimsJws(token);
             return true;
-        } catch (ExpiredJwtException expEx) {
-            log.error("Token expired");
         } catch (Exception e) {
-            log.error("Invalid token");
+            log.error(e.getMessage());
+            return false;
         }
-        return false;
     }
 
     @Override

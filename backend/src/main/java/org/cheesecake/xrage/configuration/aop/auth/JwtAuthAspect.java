@@ -12,8 +12,6 @@ import org.cheesecake.xrage.utils.HttpUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import static org.cheesecake.xrage.utils.StringUtils.isEmpty;
-
 @RequiredArgsConstructor
 @Aspect
 @Component
@@ -25,7 +23,7 @@ public class JwtAuthAspect {
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         String token = HttpUtils.getJwtTokenFromCurrentRequest();
 
-        if (isEmpty(token) || !jwtProviderService.validateToken(token)) {
+        if (!jwtProviderService.validateToken(token)) {
             throw new UnauthorizedException();
         }
 
